@@ -1,0 +1,25 @@
+clear;
+clc;
+read
+%读取数据
+clean
+%清洗数据
+resetXX
+%将输入向量化
+x=tfidf(XX);
+%tfidf向量，至此数据处理完毕
+global x1 y1 m;
+m=3000;
+x1=[x(:,1:m)];
+x2=[x(:,m+1:5574)];
+y1=[Y(1:m)];
+y2=[Y(m+1:5574)];
+%切割集合，分为训练集和测试集
+options=optimset('Gradobj','on','MaxIter',100);
+%设定option
+initialTheta=zeros(1900,1);
+%设定theta初始值
+[optTheta,functionVal,exitFlag]=fminunc(@costFunction,initialTheta,options);
+%迭代函数
+jud
+%判断准确率q
